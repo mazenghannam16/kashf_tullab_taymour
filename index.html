@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>كشف طلاب تيمور</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1><span class="material-icons">school</span> كشف طلاب تيمور</h1>
+    <div id="searchBar">
+      <span class="material-icons">search</span>
+      <input type="text" id="searchBox" placeholder="ابحث عن طالب..." oninput="searchStudent()">
+    </div>
+  </header>
+
+  <!-- صفحة السنوات -->
+  <section id="yearPage" class="page active">
+    <h2><span class="material-icons">calendar_month</span> السنوات الدراسية</h2>
+    <ul id="yearList" class="list"></ul>
+    <button onclick="openModal('yearModal')">
+      <span class="material-icons">add</span> إضافة سنة دراسية
+    </button>
+  </section>
+
+  <!-- صفحة الطلاب -->
+  <section id="studentPage" class="page">
+    <button onclick="goBack('yearPage')">
+      <span class="material-icons">arrow_back</span> رجوع
+    </button>
+    <h2 id="studentPageTitle"></h2>
+    <ul id="studentList" class="list"></ul>
+    <button onclick="openModal('studentModal')">
+      <span class="material-icons">person_add</span> إضافة طالب
+    </button>
+  </section>
+
+  <!-- صفحة تفاصيل الطالب -->
+  <section id="detailsPage" class="page">
+    <button onclick="goBack('studentPage')">
+      <span class="material-icons">arrow_back</span> رجوع
+    </button>
+    <h2><span class="material-icons">info</span> تفاصيل الطالب</h2>
+    <div id="studentDetails" class="card"></div>
+    <div class="actions">
+      <button id="editStudentBtn"><span class="material-icons">edit</span> تعديل</button>
+      <button id="deleteStudentBtn" class="danger"><span class="material-icons">delete</span> حذف</button>
+    </div>
+  </section>
+
+  <!-- مودال إضافة سنة -->
+  <div id="yearModal" class="modal">
+    <div class="modal-content">
+      <h3><span class="material-icons">calendar_month</span> إضافة / تعديل سنة دراسية</h3>
+      <input type="text" id="yearName" placeholder="اسم السنة">
+      <button onclick="saveYear()">حفظ</button>
+      <button onclick="closeModal('yearModal')">إلغاء</button>
+    </div>
+  </div>
+
+  <!-- مودال إضافة طالب -->
+  <div id="studentModal" class="modal">
+    <div class="modal-content">
+      <h3><span class="material-icons">person</span> إضافة / تعديل طالب</h3>
+      <input type="text" id="studentName" placeholder="اسم الطالب">
+      <input type="text" id="studentAddress" placeholder="العنوان">
+      <input type="text" id="studentPhone" placeholder="رقم الهاتف">
+      <input type="text" id="studentReceipt" placeholder="رقم الإيصال">
+      <button onclick="saveStudent()">حفظ</button>
+      <button onclick="closeModal('studentModal')">إلغاء</button>
+    </div>
+  </div>
+</body>
+</html>
