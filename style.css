@@ -2,7 +2,7 @@ body {
   font-family: 'Cairo', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #1e3c72, #2a5298); /* تدرج أزرق جميل */
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* تدرج أزرق */
   color: #f5f7fa;
   direction: rtl;
 }
@@ -88,12 +88,10 @@ h2 {
   padding: 16px;
   margin: 12px 0;
   border-radius: 12px;
-  cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 600;
+  justify-content: space-between;
   transition: all 0.3s ease;
 }
 
@@ -102,8 +100,37 @@ h2 {
   transform: translateY(-3px);
 }
 
-.list li .material-icons {
-  color: #fff;
+.list li .item-text {
+  flex: 1;
+  text-align: center;  /* الاسم في النص */
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.list li .actions {
+  display: flex;
+  gap: 8px;
+}
+
+.list li .actions button {
+  background: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.list li .actions button .material-icons {
+  font-size: 20px;
+  color: white;
+}
+
+.list li .actions button.danger {
+  background: #e74c3c;
 }
 
 button {
